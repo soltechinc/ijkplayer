@@ -51,7 +51,7 @@ FF_DEP_OPENSSL_LIB=
 
 FF_CFG_FLAGS=
 
-FF_EXTRA_CFLAGS=
+FF_EXTRA_CFLAGS=-DHAVE_SECTION_DATA_REL_RO
 FF_EXTRA_LDFLAGS=
 FF_DEP_LIBS=
 
@@ -255,8 +255,13 @@ FF_CFG_FLAGS="$FF_CFG_FLAGS --enable-pic"
 # FF_CFG_FLAGS="$FF_CFG_FLAGS --disable-symver"
 
 # Optimization options (experts only):
-FF_CFG_FLAGS="$FF_CFG_FLAGS --enable-asm"
-FF_CFG_FLAGS="$FF_CFG_FLAGS --enable-inline-asm"
+if [ "$FF_ARCH" = "x86" ]; then
+    FF_CFG_FLAGS="$FF_CFG_FLAGS --disable-asm"
+else 
+    # Optimization options (experts only):
+    FF_CFG_FLAGS="$FF_CFG_FLAGS --enable-asm"
+    FF_CFG_FLAGS="$FF_CFG_FLAGS --enable-inline-asm"
+fi
 
 case "$FF_BUILD_OPT" in
     debug)
@@ -293,7 +298,7 @@ echo "--------------------"
 echo "[*] compile ffmpeg"
 echo "--------------------"
 cp config.* $FF_PREFIX
-make $FF_MAKE_FLAGS > /dev/null
+make $FF_MAKE_FLAGS
 make install
 mkdir -p $FF_PREFIX/include/libffmpeg
 cp -f config.h $FF_PREFIX/include/libffmpeg/config.h
