@@ -95,6 +95,7 @@ brew install yasm
 ```
 
 - If you prefer more codec/format
+* SOLTECH Specific:* In our case, we're using module-rtsp.sh as our default config; don't modify this.
 ```
 cd config
 rm module.sh
@@ -139,9 +140,13 @@ cd ijkplayer-android
 git checkout -B latest k0.5.1
 
 ./init-android.sh
+./init-android-libyuv.sh
+./init-android-openssl.sh
+
 
 cd android/contrib
 ./compile-ffmpeg.sh clean
+./compile-openssl.sh all
 ./compile-ffmpeg.sh all
 
 cd ..
@@ -178,10 +183,12 @@ git clone https://github.com/Bilibili/ijkplayer.git ijkplayer-ios
 cd ijkplayer-ios
 git checkout -B latest k0.5.1
 
+./init-ios-openssl.sh
 ./init-ios.sh
 
 cd ios
 ./compile-ffmpeg.sh clean
+./compile-openssl.sh all
 ./compile-ffmpeg.sh all
 
 # import ios/IJKMediaPlayer for MediaPlayer.framework-like interface (recommended)
