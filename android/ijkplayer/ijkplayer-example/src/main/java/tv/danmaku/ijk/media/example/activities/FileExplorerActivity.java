@@ -16,6 +16,8 @@
 
 package tv.danmaku.ijk.media.example.activities;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -48,6 +50,12 @@ public class FileExplorerActivity extends AppActivity {
             doOpenDirectory(lastDirectory, false);
         else
             doOpenDirectory("/", false);
+
+        startActivity(
+                VideoActivity.newIntent(this, null, "Big Buck Bunny")
+                        .setAction(Intent.ACTION_SEND)
+                        .putExtra(Intent.EXTRA_STREAM, Uri.parse("rtsp://54.215.225.210:1935/vod/sample.mp4"))
+        );
     }
 
     @Override

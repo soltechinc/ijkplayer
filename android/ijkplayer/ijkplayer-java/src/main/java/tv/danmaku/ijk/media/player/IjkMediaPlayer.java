@@ -1081,6 +1081,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
         mOnMediaCodecSelectListener = null;
     }
 
+
     @CalledByNative
     private static String onSelectCodec(Object weakThiz, String mimeType, int profile, int level) {
         if (weakThiz == null || !(weakThiz instanceof WeakReference<?>))

@@ -17,6 +17,7 @@
 package tv.danmaku.ijk.media.player;
 
 import tv.danmaku.ijk.media.player.misc.IMediaDataSource;
+import tv.danmaku.ijk.media.player.misc.ITrackInfo;
 
 @SuppressWarnings("WeakerAccess")
 public abstract class AbstractMediaPlayer implements IMediaPlayer {
@@ -106,4 +107,6 @@ public abstract class AbstractMediaPlayer implements IMediaPlayer {
     public void setDataSource(IMediaDataSource mediaDataSource) {
         throw new UnsupportedOperationException();
     }
+
+    public abstract ITrackInfo[] getTrackInfo();
 }
