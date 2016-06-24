@@ -24,8 +24,8 @@ IJK_OPENSSL_LOCAL_REPO=extra/openssl
 set -e
 TOOLS=tools
 
-echo "== pull openssl base =="
-sh $TOOLS/pull-repo-base.sh $IJK_OPENSSL_UPSTREAM $IJK_OPENSSL_LOCAL_REPO
+#echo "== pull openssl base =="
+#sh $TOOLS/pull-repo-base.sh $IJK_OPENSSL_UPSTREAM $IJK_OPENSSL_LOCAL_REPO
 
 function pull_fork()
 {

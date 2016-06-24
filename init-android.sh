@@ -26,8 +26,8 @@ TOOLS=tools
 
 git --version
 
-echo "== pull ffmpeg base =="
-sh $TOOLS/pull-repo-base.sh $IJK_FFMPEG_UPSTREAM $IJK_FFMPEG_LOCAL_REPO
+#echo "== pull ffmpeg base =="
+#sh $TOOLS/pull-repo-base.sh $IJK_FFMPEG_UPSTREAM $IJK_FFMPEG_LOCAL_REPO
 
 function pull_fork()
 {
